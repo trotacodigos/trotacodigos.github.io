@@ -32,16 +32,8 @@
   "work": [
     {
       "company": "Soongsil University",
-      "department": "School of AI Convergence & AI Software",
-      "position": "Visiting Professor",
-      "startDate": "2026.01",
-      "endDate": "Present",
-      "logo": "https://i.namu.wiki/i/QyzmAMjrSSjkDfvtJ5pPKWJ3DTv64_uy5gBZ9H2XSK2Ze0hh6K1PweEX9mMwnl8HeKdMdYnorw8DvOAcgNOPKQ.svg"
-    },
-    {
-      "company": "Soongsil University",
-      "department": "AI-Bio Convergence Research Institute",
-      "position": "G-LAMP Postdoctoral Researcher",
+      "department": "School of AI Software & AI-Bio Convergence Research Institute",
+      "position": "Visiting Professor & Postdoctoral Researcher",
       "startDate": "2025.10",
       "endDate": "Present",
       "logo": "https://i.namu.wiki/i/QyzmAMjrSSjkDfvtJ5pPKWJ3DTv64_uy5gBZ9H2XSK2Ze0hh6K1PweEX9mMwnl8HeKdMdYnorw8DvOAcgNOPKQ.svg"
@@ -49,7 +41,7 @@
     {
       "company": "Kakao enterprise",
       "department": "AI Lab & Service",
-      "position": "Postdoctoral Researcher",
+      "position": "Research Scientist",
       "startDate": "2021.01",
       "endDate": "2023.01",
       "logo": "/images/cv/kakao.png"
