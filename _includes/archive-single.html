@@ -31,10 +31,7 @@
             <span class="pub-btn pub-btn--abs">Abstract</span>
             {{ pub_links }}
           </summary>
-          <div class="pub-excerpt">
-            {% if post.image %}<img class="pub-figure" src="{{ post.image | prepend: base_path }}" alt="Figure from {{ post.title | strip_html | escape }}" loading="lazy">{% endif %}
-            {{ post.excerpt }}
-          </div>
+          <div class="pub-excerpt">{{ post.excerpt }}</div>
         </details>
       {% else %}
         <div class="pub-actions">{{ pub_links }}</div>
