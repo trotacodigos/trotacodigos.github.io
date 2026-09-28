@@ -1,0 +1,55 @@
+/* ===== Projects ===== */
+.projects-page {
+  p {
+    margin: 0;
+  }
+
+  .project-section h2 {
+    margin: 2rem 0 0;
+    font-size: 1.1rem;
+  }
+
+  .project-section:first-child h2 {
+    margin-top: 0;
+  }
+
+  .project-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .project-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .project-venue {
+    margin-left: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #777;
+  }
+
+  .project-desc {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: #444;
+  }
+}
+
+[data-theme="dark"] .projects-page {
+  .project-item {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .project-desc {
+    color: #ccc;
+  }
+
+  .project-venue {
+    color: #999;
+  }
+}

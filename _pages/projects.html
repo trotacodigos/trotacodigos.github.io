@@ -1,0 +1,25 @@
+---
+layout: archive
+title: "Projects"
+permalink: /projects/
+author_profile: true
+---
+
+<div class="projects-page">
+  {% for group in site.data.projects %}
+  <section class="project-section">
+    <h2>{{ group.section }}</h2>
+    {% for p in group.items %}
+    <div class="project-item">
+      <p class="project-name">{{ p.name }}{% if p.venue %}<span class="project-venue">{{ p.venue }}</span>{% endif %}</p>
+      <p class="project-desc">{{ p.desc }}</p>
+      {% if p.links %}
+      <div class="pub-actions">
+        {% for l in p.links %}<a class="pub-btn" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+</div>

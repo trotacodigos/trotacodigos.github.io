@@ -1,0 +1,78 @@
+# Projects 페이지 데이터. 섹션과 항목 순서가 그대로 페이지에 나온다.
+# links: label과 url만 적으면 버튼이 된다 (Code, Paper, Demo, PyPI 등).
+
+- section: Evaluation Frameworks
+  items:
+    - name: RUBRIC-MQM
+      desc: Span-level LLM-as-judge for machine translation. Rubric-style prompting reduces label bias and handles near-perfect translations; an updated version of GEMBA-MQM.
+      venue: ACL Industry 2025
+      links:
+        - label: Code
+          url: https://github.com/trotacodigos/Rubric-MQM
+        - label: Paper
+          url: https://aclanthology.org/2025.acl-industry.12.pdf
+
+    - name: FALCON / H-FALCON
+      desc: Document-level MT evaluation grounded in functional linguistics. FALCON defines pragmatic, discourse-level criteria; H-FALCON refines them for reliable human annotation.
+      venue: TechRxiv 2025 · WMT 2025
+      links:
+        - label: Code
+          url: https://github.com/trotacodigos/H-FALCON
+        - label: FALCON
+          url: https://doi.org/10.36227/techrxiv.174801743.30020631/v1
+        - label: H-FALCON
+          url: https://aclanthology.org/2025.wmt-1.5.pdf
+
+    - name: DDP
+      desc: Discourse dependency, a metric-free, source-side measure of how far back a segment must look in its document to resolve its entities and pronouns.
+      venue: EMNLP 2026
+      links:
+        - label: Code
+          url: https://github.com/trotacodigos/ddp
+        - label: Paper
+          url: https://arxiv.org/pdf/2609.04959
+
+- section: Shared Task Systems
+  items:
+    - name: FACET
+      desc: Reference-free submission to the WMT26 Automated Translation Quality Evaluation Task. Evaluation is split into Fluency, Accuracy, and Consistency passes, each given only the context its error type needs.
+      venue: WMT 2026
+      links:
+        - label: Code
+          url: https://github.com/trotacodigos/facet
+
+    - name: MultiAgentMT
+      desc: Translate–Post-edit–Proofread pipeline of LLM agents guided by RUBRIC-MQM error spans. Submission to the WMT25 General MT Task.
+      venue: WMT 2025
+      links:
+        - label: Code
+          url: https://github.com/trotacodigos/MultiAgentMT
+        - label: System Paper
+          url: https://aclanthology.org/2025.wmt-1.53.pdf
+        - label: Study
+          url: https://aclanthology.org/2025.wmt-1.32.pdf
+
+- section: Data & Resources
+  items:
+    - name: ESA Counterfactual
+      desc: 18,420 expert English–Korean annotations comparing coherent documents with documents mixed from different systems, testing whether document-level presentation changes judgments.
+      venue: EMNLP 2026
+      links:
+        - label: Code
+          url: https://github.com/trotacodigos/esa-counterfactual
+        - label: Paper
+          url: https://arxiv.org/pdf/2609.05949
+
+    - name: Doc-APE
+      desc: Document-level automatic post-editing with proprietary and open-weight LLMs, covering quality, use of context, robustness, and cost.
+      venue: arXiv 2026
+      links:
+        - label: Paper
+          url: https://arxiv.org/abs/2601.19410
+
+    - name: Korean SacreBLEU
+      desc: Into-Korean meta-evaluation resources for testing how tokenization (word, morpheme, subword, character, jamo) changes the human correlation of SacreBLEU.
+      venue: HumEval @ACL 2022
+      links:
+        - label: Paper
+          url: https://aclanthology.org/2022.humeval-1.1.pdf
