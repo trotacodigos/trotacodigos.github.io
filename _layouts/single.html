@@ -26,6 +26,10 @@ layout: default
     <div class="page__inner-wrap">
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
+          {% if page.collection == 'posts' %}
+            {% if page.title %}<h1 class="page__title post-title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+            <p class="post-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time></p>
+          {% else %}
           {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
           {% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
@@ -41,11 +45,22 @@ layout: default
         {% elsif page.date %}
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}    
+          {% endif %}
         </header>
       {% endunless %}
 
-      <section class="page__content" itemprop="text">
+      <section class="page__content{% if page.collection == 'posts' %} post-body{% endif %}" itemprop="text">
         {{ content }}
+
+        {% if page.papers %}
+          <div class="post-papers">
+            {% for ref in page.papers %}
+              {% for post in site.publications %}
+                {% if post.url == ref %}{% include archive-single.html %}{% endif %}
+              {% endfor %}
+            {% endfor %}
+          </div>
+        {% endif %}
 
         {% if page.citation %}
           <p style="font-size: smaller">
@@ -80,6 +95,13 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
+      {% if page.collection == 'posts' %}
+        <nav class="post-nav">
+          <span class="post-nav__prev">{% if page.previous %}<a href="{{ base_path }}{{ page.previous.url }}" title="{{ page.previous.title | strip_html | escape }}">← Previous</a>{% endif %}</span>
+          <a class="post-nav__all" href="{{ base_path }}/year-archive/">All news</a>
+          <span class="post-nav__next">{% if page.next %}<a href="{{ base_path }}{{ page.next.url }}" title="{{ page.next.title | strip_html | escape }}">Next →</a>{% endif %}</span>
+        </nav>
+      {% else %}
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
@@ -90,6 +112,7 @@ layout: default
       {% if page.share %}{% include social-share.html %}{% endif %}
 
       {% include post_pagination.html %}
+      {% endif %}
     </div>
 
     {% if site.comments.provider and page.comments %}
@@ -98,7 +121,7 @@ layout: default
   </article>
 
   {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
-  {% if page.id and page.related and site.related_posts.size > 0 %}
+  {% if page.id and page.related and site.related_posts.size > 0 and page.collection != 'posts' %}
     <div class="page__related">
       {% if site.data.ui-text[site.locale].related_label %}
         <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
