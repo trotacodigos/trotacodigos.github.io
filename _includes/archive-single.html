@@ -10,17 +10,6 @@
 
   <!-- publications 목록 UI -->
   <div class="archive__item publication-card">
-    {% if post.image %}
-    <div class="pub-thumb">
-      <img src="{{ post.image | prepend: base_path }}" alt="" loading="lazy">
-    </div>
-    {% else %}
-    <div class="pub-thumb pub-thumb--badge" aria-hidden="true">
-      <span class="pub-badge-venue">{{ post.venue }}</span>
-      <span class="pub-badge-year">{{ post.date | date: "%Y" }}</span>
-    </div>
-    {% endif %}
-
     <div class="pub-body">
       <p class="pub-title">{{ title }}</p>
 
@@ -42,7 +31,10 @@
             <span class="pub-btn pub-btn--abs">Abstract</span>
             {{ pub_links }}
           </summary>
-          <div class="pub-excerpt">{{ post.excerpt }}</div>
+          <div class="pub-excerpt">
+            {% if post.image %}<img class="pub-figure" src="{{ post.image | prepend: base_path }}" alt="Figure from {{ post.title | strip_html | escape }}" loading="lazy">{% endif %}
+            {{ post.excerpt }}
+          </div>
         </details>
       {% else %}
         <div class="pub-actions">{{ pub_links }}</div>
