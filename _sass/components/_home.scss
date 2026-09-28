@@ -1,0 +1,54 @@
+/* ===== Home (About) ===== */
+.home-page {
+  p,
+  li {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  h2 {
+    margin: 2rem 0 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  /* news list */
+  .home-news {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: grid;
+      grid-template-columns: 4.2rem 1fr;
+      gap: 0.6rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  .home-news-date {
+    font-size: 0.82rem;
+    color: #777;
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.05rem;
+  }
+
+  .home-more {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+  }
+}
+
+[data-theme="dark"] .home-page {
+  .home-news li {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .home-news-date {
+    color: #999;
+  }
+}

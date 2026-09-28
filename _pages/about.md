@@ -6,6 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
+<div class="home-page" markdown="1">
 
 ## About Me
 I am a postdoctoral researcher at the AI-Bio Convergence Research Institute and a visiting professor at Soongsil University.
@@ -20,16 +21,18 @@ I received my PhD in Language Technology from Universitat Pompeu Fabra (UPF), wh
 {% assign now_ts = "now" | date: "%s" | plus: 0 %}
 {% assign one_year_ago = now_ts | minus: 31536000 %}
 
-<ul>
+<ul class="home-news">
 {% for post in site.posts %}
   {% assign post_ts = post.date | date: "%s" | plus: 0 %}
   {% if post_ts >= one_year_ago %}
     <li>
-      <strong>{{ post.date | date: "%Y.%m" }}</strong> —
+      <span class="home-news-date">{{ post.date | date: "%Y.%m" }}</span>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </li>
   {% endif %}
 {% endfor %}
 </ul>
 
-<p><a href="/year-archive/">→ more</a></p>
+<p class="home-more"><a href="/year-archive/">→ more</a></p>
+
+</div>
