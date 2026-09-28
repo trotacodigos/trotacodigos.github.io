@@ -15,7 +15,10 @@
       <img src="{{ post.image | prepend: base_path }}" alt="" loading="lazy">
     </div>
     {% else %}
-    <div class="pub-thumb pub-thumb--empty"></div>
+    <div class="pub-thumb pub-thumb--badge" aria-hidden="true">
+      <span class="pub-badge-venue">{{ post.venue }}</span>
+      <span class="pub-badge-year">{{ post.date | date: "%Y" }}</span>
+    </div>
     {% endif %}
 
     <div class="pub-body">

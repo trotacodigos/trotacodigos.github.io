@@ -35,9 +35,27 @@
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-.pub-thumb--empty {
-  border: 0;
-  background: none;
+/* 이미지가 없는 논문: 학회명 배지 (다른 썸네일처럼 모드와 상관없이 밝은 바탕) */
+.pub-thumb--badge {
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0 0.5rem;
+  text-align: center;
+  background: #f7f7f5;
+}
+
+.pub-badge-venue {
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #555;
+}
+
+.pub-badge-year {
+  font-size: 0.72rem;
+  color: #888;
+  font-variant-numeric: tabular-nums;
 }
 
 .pub-body {
