@@ -8,45 +8,43 @@
 
 {% if post.collection == 'publications' %}
 
-  <!-- publications 카드 UI -->
+  <!-- publications 목록 UI -->
   <div class="archive__item publication-card">
-    <details>
-      <summary>
-        <div class="pub-summary">
-          <div class="pub-text">
-            <h3 class="pub-title">{{ title }}</h3>
+    {% if post.image %}
+    <div class="pub-thumb">
+      <img src="{{ post.image | prepend: base_path }}" alt="" loading="lazy">
+    </div>
+    {% else %}
+    <div class="pub-thumb pub-thumb--empty"></div>
+    {% endif %}
 
-            <p class="pub-meta">
-              <i>{{ post.venue }}</i>, {{ post.date | date: "%Y" }}
-            </p>
+    <div class="pub-body">
+      <p class="pub-title">{{ title }}</p>
 
-            {% if post.authors %}
-              <p class="pub-authors">{{ post.authors }}</p>
-            {% endif %}
-          </div>
+      {% if post.authors %}
+        <p class="pub-authors">{{ post.authors }}</p>
+      {% endif %}
 
-          {% if post.image %}
-          <div class="pub-image">
-            <img src="{{ post.image | prepend: base_path }}" alt="publication image">
-          </div>
-          {% endif %}
-        </div>
-      </summary>
+      <p class="pub-meta"><i>{{ post.venue }}</i> {{ post.date | date: "%Y" }}</p>
 
-      <div class="pub-details">
-        {% if post.excerpt %}
-          <p class="pub-excerpt">{{ post.excerpt }}</p>
-        {% endif %}
+      {% capture pub_links %}
+        {% if post.paperurl %}<a class="pub-btn" href="{{ post.paperurl }}" target="_blank" rel="noopener">Paper</a>{% endif %}
+        {% if post.codeurl %}<a class="pub-btn" href="{{ post.codeurl }}" target="_blank" rel="noopener">Code</a>{% endif %}
+        {% if post.bibtexurl %}<a class="pub-btn" href="{{ base_path }}{{ post.bibtexurl }}">BibTeX</a>{% endif %}
+      {% endcapture %}
 
-        {% if post.paperurl or post.codeurl or post.bibtexurl %}
-          <p class="pub-links">
-            {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}
-            {% if post.codeurl %} | <a href="{{ post.codeurl }}">Code</a>{% endif %}
-            {% if post.bibtexurl %} | <a href="{{ base_path }}{{ post.bibtexurl }}">BibTeX</a>{% endif %}
-          </p>
-        {% endif %}
-      </div>
-    </details>
+      {% if post.excerpt %}
+        <details class="pub-abstract">
+          <summary class="pub-actions">
+            <span class="pub-btn pub-btn--abs">Abstract</span>
+            {{ pub_links }}
+          </summary>
+          <div class="pub-excerpt">{{ post.excerpt }}</div>
+        </details>
+      {% else %}
+        <div class="pub-actions">{{ pub_links }}</div>
+      {% endif %}
+    </div>
   </div>
 
 {% else %}
